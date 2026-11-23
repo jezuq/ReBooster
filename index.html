@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReBooster | Reliable Elo Boost</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-gold"></div>
+    <div class="ambient-glow glow-purple"></div>
+    <div class="grid-overlay"></div>
+
+    <nav class="navbar">
+        <button type="button" class="logo-btn" data-tab="home">Re<span>Booster</span></button>
+        <ul class="nav-links">
+            <li><button type="button" class="nav-btn active" data-tab="home">Ana Sayfa</button></li>
+            <li><button type="button" class="nav-btn" data-tab="hesapla">Fiyat Hesaplayıcı</button></li>
+            <li><button type="button" class="nav-btn" data-tab="guvenceler">Neden Biz?</button></li>
+            <li><button type="button" class="nav-btn" data-tab="hakkimizda">Hakkımızda</button></li>
+            <li><button type="button" class="nav-btn" data-tab="iletisim">İletişim</button></li>
+        </ul>
+    </nav>
+
+    <main id="tab-home" class="tab-panel active">
+        <section class="hero">
+            <div class="hero-image-layer"></div>
+            <div class="hero-vignette"></div>
+
+            <div class="hero-content">
+                <div class="hero-badge">AÇILIŞA ÖZEL İNDİRİM • RELIABLE ELO BOOSTER</div>
+                <h1>Piyasanın En Uygun <span>Elo Boost</span> Deneyimi</h1>
+                <p>Diğer boosterlara göre çok daha ulaşılabilir fiyatlar, açılışa özel indirim avantajı, çevrimdışı gizlilik modu ve hızlı yükselme ile hedefine vakit kaybetmeden ulaş.</p>
+                <div class="hero-actions">
+                    <button type="button" class="btn-primary" data-jump-tab="hesapla">Fiyat Hesaplayıcıyı Aç</button>
+                    <button type="button" class="btn-secondary" data-jump-tab="iletisim">Hemen İletişime Geç</button>
+                </div>
+
+                <div class="home-highlights">
+                    <div class="home-highlight-card">
+                        <span class="highlight-tag">AÇILIŞ FIRSATI</span>
+                        <h3>Uygun &amp; İndirimli Fiyatlar</h3>
+                        <p>Rekabetçi ve bütçe dostu küme fiyatlarıyla açılışa özel indirimli tekliflerden yararlan.</p>
+                    </div>
+                    <div class="home-highlight-card">
+                        <span class="highlight-tag">GİZLİLİK</span>
+                        <h3>Çevrimdışı &amp; Güvenli</h3>
+                        <p>Hesap gizliliğine saygılı, çevrimdışı mod destekli ve şeffaf sipariş süreci.</p>
+                    </div>
+                    <div class="home-highlight-card">
+                        <span class="highlight-tag">ÖZELLEŞTİRME</span>
+                        <h3>Rol &amp; 5 Şampiyon Seçimi</h3>
+                        <p>İstediğin rolü veya 5 şampiyona kadar özel şampiyon havuzunu kolayca seç.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="tab-hesapla" class="tab-panel page-section">
+        <div class="section-header">
+            <span class="section-tag">AÇILIŞA ÖZEL İNDİRİM AKTİF</span>
+            <h2>Fiyat Hesaplayıcı</h2>
+        </div>
+
+        <div class="promo-banner">
+            <div>
+                <strong>Açılışa Özel İndirimli Fiyatlar!</strong>
+                <span>Diğer boosterlara göre daha uygun küme fiyatları ve açılış indirimi hesaplamaya otomatik yansıtılmıştır.</span>
+            </div>
+            <span class="promo-badge">AÇILIŞ İNDİRİMİ</span>
+        </div>
+
+        <div class="pro-calc-wrapper">
+            <div class="calc-left-col">
+                <div class="rank-card current-card">
+                    <div class="rank-card-top">
+                        <div class="selected-emblem-preview" id="current-emblem-big"></div>
+                        <div class="rank-card-title">
+                            <h3>Mevcut Lig</h3>
+                            <p>Mevcut lig ve küme seçimini yap.</p>
+                        </div>
+                        <div class="rank-badge-label gold-text" id="current-rank-label">Altın I</div>
+                    </div>
+
+                    <div class="tier-selector" id="current-tier-grid"></div>
+
+                    <div class="division-selector" id="current-div-grid">
+                        <button type="button" class="div-btn active" data-div="3">I</button>
+                        <button type="button" class="div-btn" data-div="2">II</button>
+                        <button type="button" class="div-btn" data-div="1">III</button>
+                        <button type="button" class="div-btn" data-div="0">IV</button>
+                    </div>
+
+                    <div class="sub-options-grid">
+                        <div class="input-group">
+                            <label for="current-lp">MEVCUT LP</label>
+                            <select id="current-lp">
+                                <option value="0">0-19 LP</option>
+                                <option value="0.04">20-39 LP (-%4)</option>
+                                <option value="0.08">40-59 LP (-%8)</option>
+                                <option value="0.12">60-79 LP (-%12)</option>
+                                <option value="0.16">80-99 LP (-%16)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="server-select">SERVER</label>
+                            <select id="server-select">
+                                <option value="Turkey">Turkey</option>
+                                <option value="EU West">EU West</option>
+                                <option value="EU Nordic & East">EU Nordic &amp; East</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="queue-select">ORDER TÜRÜ</label>
+                            <select id="queue-select">
+                                <option value="Tekli Çiftli">Tekli Çiftli</option>
+                                <option value="Esnek">Esnek</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rank-card target-card">
+                    <div class="rank-card-top">
+                        <div class="selected-emblem-preview" id="target-emblem-big"></div>
+                        <div class="rank-card-title">
+                            <h3>Hedef Lig</h3>
+                            <p>Ulaşmak istediğin lig ve kümeyi seç.</p>
+                        </div>
+                        <div class="rank-badge-label emerald-text" id="target-rank-label">Zümrüt IV</div>
+                    </div>
+
+                    <div class="tier-selector" id="target-tier-grid"></div>
+
+                    <div class="division-selector" id="target-div-grid">
+                        <button type="button" class="div-btn" data-div="3">I</button>
+                        <button type="button" class="div-btn" data-div="2">II</button>
+                        <button type="button" class="div-btn" data-div="1">III</button>
+                        <button type="button" class="div-btn active" data-div="0">IV</button>
+                    </div>
+                </div>
+
+                <div class="info-box-card">
+                    <div class="info-box-head">
+                        <span class="mini-pill">AÇILIŞ KAMPANYASI &amp; BİLGİ</span>
+                        <span class="eta-badge" id="eta-text">Tahmini Süre: 1 - 2 Gün</span>
+                    </div>
+                    <h4>7/24 Destek &amp; Açılışa Özel Uygun Fiyatlar</h4>
+                    <p>Açılışa özel indirimli fiyatlar ve düşük küme ücretleriyle bütçeni zorlamadan yüksel. Sipariş özetini kopyalayıp İletişim sekmesinden Discord (<strong>jezuq</strong>) veya Instagram üzerinden bize yazabilirsin.</p>
+                    <div class="info-mini-tags">
+                        <span>Açılışa Özel İndirim</span>
+                        <span>Uygun Küme Fiyatları</span>
+                        <span>Çevrimdışı Mod</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-right-col">
+                <div class="checkout-card">
+                    <div class="route-header">
+                        <span id="summary-start-text">Altın I</span>
+                        <span class="route-arrow">➔</span>
+                        <span id="summary-end-text" class="emerald-text">Zümrüt IV</span>
+                    </div>
+
+                    <div class="mode-switch">
+                        <button type="button" class="mode-btn active" data-mode="solo">SOLO</button>
+                        <button type="button" class="mode-btn" data-mode="duo">DUO (+%30)</button>
+                    </div>
+
+                    <div class="option-block">
+                        <div class="block-title">
+                            Rol Seçimi
+                            <span class="help-dot" data-tooltip="Belirli bir koridor veya şampiyon talep edersen ek ücret uygulanır. Seçili rolü tekrar tıklayarak kaldırabilirsin.">?</span>
+                        </div>
+                        <div class="role-grid">
+                            <button type="button" class="role-btn" data-role="Top" data-extra="0.20" data-fallback="⚔️">
+                                <img src="img/role-top.png" alt="Top" class="role-img">
+                                <div><strong>Top</strong><small>+20%</small></div>
+                            </button>
+                            <button type="button" class="role-btn" data-role="Jungle" data-extra="0.20" data-fallback="🌿">
+                                <img src="img/role-jungle.png" alt="Jungle" class="role-img">
+                                <div><strong>Jungle</strong><small>+20%</small></div>
+                            </button>
+                            <button type="button" class="role-btn" data-role="Mid" data-extra="0.20" data-fallback="🔥">
+                                <img src="img/role-mid.png" alt="Mid" class="role-img">
+                                <div><strong>Mid</strong><small>+20%</small></div>
+                            </button>
+                            <button type="button" class="role-btn" data-role="ADC" data-extra="0.20" data-fallback="🏹">
+                                <img src="img/role-adc.png" alt="ADC" class="role-img">
+                                <div><strong>ADC</strong><small>+20%</small></div>
+                            </button>
+                            <button type="button" class="role-btn" data-role="Support" data-extra="0.30" data-fallback="🛡️">
+                                <img src="img/role-support.png" alt="Support" class="role-img">
+                                <div><strong>Support</strong><small>+30%</small></div>
+                            </button>
+                            <button type="button" class="role-btn" id="champ-role-btn" data-role="Özel Şampiyon" data-extra="0.40">
+                                <span class="role-svg-wrap" id="champ-role-icon" aria-hidden="true"></span>
+                                <div><strong id="champ-role-label">Özel Şampiyon</strong><small>+40%</small></div>
+                            </button>
+                        </div>
+
+                        <div class="champ-picker-box" id="champ-picker-box">
+                            <div class="champ-picker-header">
+                                <label for="champ-search-input">Şampiyon Ara ve Seç (En fazla 5)</label>
+                                <span class="champ-counter" id="champ-counter">0 / 5</span>
+                            </div>
+                            <input type="text" id="champ-search-input" placeholder="Örn: Aurelion Sol, K'Sante, Lee Sin..." autocomplete="off">
+                            <p class="champ-limit-note" id="champ-limit-note"></p>
+                            <div class="champ-results" id="champ-results"></div>
+                            <div class="selected-champ-pill" id="selected-champ-pill" style="display: none;">
+                                <div class="selected-champ-chips" id="selected-champ-chips"></div>
+                                <button type="button" id="clear-champ-btn">Temizle</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="toggles-list">
+                        <div class="toggle-row">
+                            <span>
+                                Flash Tuşu
+                                <span class="help-dot" data-tooltip="Sihirdar Büyüsü (Sıçra) tuşunu D veya F olarak tercih edebilirsin.">?</span>
+                            </span>
+                            <div class="toggle-right">
+                                <span class="tag-pill" id="flash-label">D</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="flash-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>
+                                Çevrimdışı Mod
+                                <span class="help-dot" data-tooltip="Maçlar sırasında istemcide çevrimdışı görünürsün; arkadaş listenle etkileşime girilmez.">?</span>
+                            </span>
+                            <div class="toggle-right">
+                                <span class="tag-pill free">ÜCRETSİZ</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="offline-toggle" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>
+                                +1 Galibiyet
+                                <span class="help-dot" data-tooltip="Hedef kümeye ulaştıktan sonra ekstra 1 galibiyet maçı daha oynanır.">?</span>
+                            </span>
+                            <div class="toggle-right">
+                                <span class="tag-pill purple">+5%</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="extra-win-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>
+                                Canlı Yayın
+                                <span class="help-dot" data-tooltip="Maçları özel/canlı yayın bağlantısı üzerinden anlık izleme seçeneğidir.">?</span>
+                            </span>
+                            <div class="toggle-right">
+                                <span class="tag-pill purple">+15%</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="stream-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>
+                                Öncelikli Sipariş
+                                <span class="help-dot" data-tooltip="Siparişin sıraya alınmadan en önde işleme başlatılmasını sağlar.">?</span>
+                            </span>
+                            <div class="toggle-right">
+                                <span class="tag-pill purple">+10%</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="priority-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-footer">
+                        <span class="total-caption">Toplam Fiyat (Açılış İndirimi Dahil)</span>
+                        <div class="price-row">
+                            <span class="old-price" id="old-price">0 TL</span>
+                            <span class="final-price" id="total-price">0 TL</span>
+                        </div>
+                        <p id="error-msg" class="error-text"></p>
+                        <button type="button" id="order-btn" class="btn-purple-order">SİPARİŞİ TAMAMLA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-guvenceler" class="tab-panel page-section">
+        <div class="section-header">
+            <span class="section-tag">STANDARTLARIMIZ</span>
+            <h2>Neden ReBooster?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Açılışa Özel Uygun Fiyatlar</h3>
+                <p>Diğer boosterlara kıyasla çok daha ekonomik küme fiyatları ve açılış indirimiyle bütçeni koruyarak yükselirsin.</p>
+            </div>
+            <div class="feature-card">
+                <h3>%100 Hesap Güvenliği</h3>
+                <p>Çevrimdışı mod ve gizlilik odaklı bağlantı kurallarıyla arkadaş listen rahatsız edilmeden güvenle yükselirsin.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Yüksek Tempo &amp; Kazanma Oranı</h3>
+                <p>Üst seviye oyun bilgisi ve koridor hakimiyeti sayesinde maçlar bekletilmeden hızlı serilerle tamamlanır.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Esnek Özelleştirme</h3>
+                <p>Solo veya Duo seçeneği, rol veya 5 şampiyona kadar özel şampiyon tercihiyle süreci kendine göre ayarla.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-hakkimizda" class="tab-panel page-section">
+        <div class="section-header">
+            <span class="section-tag">MARKA VİZYONU</span>
+            <h2>Hakkımızda</h2>
+        </div>
+        <div class="about-card">
+            <p><strong>ReBooster (Reliable Elo Booster)</strong>, güvenilirlik, hız, ulaşılabilir fiyatlar ve şeffaf iletişim ilkeleri üzerine kurulmuştur.</p>
+            <p>Açılış dönemimize özel avantajlı fiyatlarla mevcut liginden hedeflediğin kümeye kadar tüm detayları tek ekranda planlayıp doğrudan bizimle iletişime geçebilirsin.</p>
+        </div>
+    </section>
+
+    <section id="tab-iletisim" class="tab-panel page-section">
+        <div class="section-header">
+            <span class="section-tag">DOĞRUDAN BAĞLANTI</span>
+            <h2>İletişim &amp; Destek</h2>
+        </div>
+        <div class="contact-panel">
+            <p>Fiyat Hesaplayıcıdan kopyaladığın sipariş kodunu Discord veya Instagram üzerinden bize ileterek hemen başlayabilirsin.</p>
+
+            <div class="contact-link-buttons">
+                <a id="discord-link-btn" href="https://discord.com/users/jezuq" target="_blank" rel="noopener noreferrer" class="social-link-btn discord-btn">
+                    <span>DISCORD PROFİLİ • JEZUQ</span>
+                    <strong>Discord'a Git ➔</strong>
+                </a>
+                <a id="instagram-link-btn" href="https://www.instagram.com/xalixkahya/" target="_blank" rel="noopener noreferrer" class="social-link-btn insta-btn">
+                    <span>INSTAGRAM PROFİLİ • @XALIXKAHYA</span>
+                    <strong>Instagram'a Git ➔</strong>
+                </a>
+            </div>
+
+            <p class="contact-subnote">Discord: <strong>jezuq</strong> • Instagram: <strong>@xalixkahya</strong></p>
+            <p class="copyright">© 2026 ReBooster — Reliable Elo Booster</p>
+        </div>
+    </section>
+
+    <div id="hover-tooltip" class="hover-tooltip" role="tooltip"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
