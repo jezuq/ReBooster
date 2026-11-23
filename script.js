@@ -47,15 +47,51 @@ const champions = [
 ];
 
 const customChampFileMap = {
-    "Nunu & Willump": "NunuWillump",
-    "Renata Glasc": "RenataGlasc"
+    "Nunu & Willump": ["NunuWillump", "Nunu", "NunuandWillump"],
+    "Renata Glasc": ["RenataGlasc", "Renata"],
+    "Wukong": ["Wukong", "MonkeyKing"]
 };
 
 function toChampFileName(name) {
-    if (customChampFileMap[name]) {
-        return customChampFileMap[name];
+    const mapped = customChampFileMap[name];
+    if (Array.isArray(mapped) && mapped.length > 0) {
+        return mapped[0];
+    }
+    if (typeof mapped === "string" && mapped) {
+        return mapped;
     }
     return name.replace(/[^A-Za-z0-9]/g, "");
+}
+
+function getChampCandidateSrcs(name) {
+    const cleanDefault = name.replace(/[^A-Za-z0-9]/g, "");
+    const mapped = customChampFileMap[name];
+    const candidates = [];
+
+    if (Array.isArray(mapped)) {
+        candidates.push(...mapped);
+    } else if (typeof mapped === "string" && mapped) {
+        candidates.push(mapped);
+    }
+    candidates.push(cleanDefault);
+
+    const uniqueNames = [...new Set(candidates)];
+    return uniqueNames.map(fileBase => `img/champs/${fileBase}.png`);
+}
+
+function attachChampImgWithFallback(img, champName, fallbackFactory) {
+    const srcs = getChampCandidateSrcs(champName);
+    let idx = 0;
+    img.src = srcs[idx];
+
+    img.addEventListener("error", () => {
+        idx += 1;
+        if (idx < srcs.length) {
+            img.src = srcs[idx];
+        } else if (typeof fallbackFactory === "function") {
+            img.replaceWith(fallbackFactory());
+        }
+    });
 }
 
 const divisionLabels = ["IV", "III", "II", "I"];
@@ -218,14 +254,13 @@ function renderChampRoleVisual() {
 
     list.forEach(champName => {
         const img = document.createElement("img");
-        img.src = `${toChampFileName(champName)}.png`;
         img.alt = champName;
         img.className = "multi-champ-img";
-        img.addEventListener("error", () => {
+        attachChampImgWithFallback(img, champName, () => {
             const fb = document.createElement("span");
             fb.className = "multi-champ-fallback";
             fb.textContent = champName.charAt(0).toUpperCase();
-            img.replaceWith(fb);
+            return fb;
         });
         grid.appendChild(img);
     });
@@ -304,14 +339,13 @@ function renderChampResults(filterText = "") {
         b.className = "champ-option-btn" + (isSelected ? " selected" : "");
 
         const img = document.createElement("img");
-        img.src = `img/champs/${toChampFileName(champName)}.png`;
         img.alt = champName;
         img.className = "champ-list-icon";
-        img.addEventListener("error", () => {
+        attachChampImgWithFallback(img, champName, () => {
             const fb = document.createElement("span");
             fb.className = "champ-list-fallback";
             fb.textContent = champName.charAt(0).toUpperCase();
-            img.replaceWith(fb);
+            return fb;
         });
 
         const labelSpan = document.createElement("span");
