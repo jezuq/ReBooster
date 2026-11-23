@@ -218,7 +218,7 @@ function renderChampRoleVisual() {
 
     list.forEach(champName => {
         const img = document.createElement("img");
-        img.src = `img/champs/${toChampFileName(champName)}.png`;
+        img.src = `${toChampFileName(champName)}.png`;
         img.alt = champName;
         img.className = "multi-champ-img";
         img.addEventListener("error", () => {
